@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    buildToolsVersion '27.0.3'
+}
+
+dependencies {
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    testCompile 'junit:junit:4.12'
+//    implementation project(':aladdinCore')
+//    implementation "com.pingan.aladdin.core:aladdinCore:1.0.2-SNAPSHOT"
+
+
+
+//    api 'com.pingan.aladdin:annotation:1.0.0-SNAPSHOT'
+    api 'com.beyondxia.modules:annotation:1.0.1'
+
+
+}
